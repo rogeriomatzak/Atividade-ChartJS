@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body style="display: flex;">
+
+    <div>
+        <canvas id="linhaChart" style="position: relative; height:40vh; width:40vw"></canvas>
+    </div>
+    
+    <div>
+        <canvas id="barraChart" style="position: relative; height:40vh; width:40vw"></canvas>
+    </div>
+
+  
+
+    <script>
+        const linhaCtx = document.getElementById('linhaChart');
+        const barraCtx = document.getElementById('barraChart');
+
+        new Chart(linhaCtx, {
+            type: 'line',
+            data: {
+                labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+                datasets: [{
+                    label: 'Temperatura Média',
+                        data: [30, 29, 28, 25, 22, 18],
+                    backgroundColor: 'rgba(255, 99, 132)',
+                    borderColor: 'rgba(255, 99, 132 )',
+                    borderWidth: 1
+                }, {
+                    label: 'Umidade Média',
+                    data: [80, 82, 80, 85, 80, 83],
+                    backgroundColor: 'rgba(0, 0, 255)',
+                    borderColor: 'rgba(0, 0, 255)',
+                    borderWidth: 1
+
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        new Chart(barraCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+                datasets: [{
+                    label: 'Temperatura Média',
+                    data: [22, 24, 27, 23, 20, 18],
+                    backgroundColor: 'rgba(255, 99, 132)',
+                    borderColor: 'rgba(255, 99, 132 )',
+                    borderWidth: 1
+                }, {
+                    label: 'Umidade Média',
+                    data: [80, 89, 93, 87, 88, 82],
+                    backgroundColor: 'rgba(0, 0, 255)',
+                    borderColor: 'rgba(0, 0, 255)',
+                    borderWidth: 1
+
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
